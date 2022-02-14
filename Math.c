@@ -7,12 +7,13 @@ double AreaOfASquare(), AreaOfATriangle(), AreaOfACircle(), CircumOfACircle(), Q
 int main(){
     int selection; 
     while(1){
-        printf("\n\nChoose Which Program You Want To Use:\n");
+        printf("\n\nChoose Which Function You Want To Use:\n");
         printf("1 - Area Of A Square\n");
         printf("2 - Area Of A Triangle\n");
         printf("3 - Area Of A Circle\n");
         printf("4 - Circumference Of A Circle\n");
         printf("5 - Quadratic Formula\n");
+        printf("9 - Exit Program\n");
         scanf("%u", &selection);
 
     if(selection == 1){
@@ -25,6 +26,8 @@ int main(){
         CircumOfACircle();
         } else if(selection == 5){
         QuadraticForm();
+        } else if(selection == 9){
+        exit(1);
         } else{
         printf("Invalid Option\n");     
         }
