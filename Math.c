@@ -6,26 +6,28 @@ double AreaOfASquare(), AreaOfATriangle(), AreaOfACircle(), CircumOfACircle(), Q
 
 int main(){
     int selection; 
-    printf("Choose Which Program You Want To Use:\n");
-    printf("1 - Area Of A Square\n");
-    printf("2 - Area Of A Triangle\n");
-    printf("3 - Area Of A Circle\n");
-    printf("4 - Circumference Of A Circle\n");
-    printf("5 - Quadratic Formula\n");
-    scanf("%d", &selection);
-   
+    while(1){
+        printf("\n\nChoose Which Program You Want To Use:\n");
+        printf("1 - Area Of A Square\n");
+        printf("2 - Area Of A Triangle\n");
+        printf("3 - Area Of A Circle\n");
+        printf("4 - Circumference Of A Circle\n");
+        printf("5 - Quadratic Formula\n");
+        scanf("%u", &selection);
+
     if(selection == 1){
         AreaOfASquare();
-    } else if(selection == 2){
+        } else if(selection == 2){
         AreaOfATriangle();
-    } else if(selection == 3){
+        } else if(selection == 3){
         AreaOfACircle();
-    } else if(selection == 4){
+        } else if(selection == 4){
         CircumOfACircle();
-    } else if(selection == 5){
+        } else if(selection == 5){
         QuadraticForm();
-    } else{
-        printf("Invalid Option\n");
+        } else{
+        printf("Invalid Option\n");     
+        }
     }
     return 0;
 }
@@ -34,22 +36,26 @@ int main(){
 
 double AreaOfASquare(){
     double Xlength, Yheight;
-    printf("Enter The Length (in meters) Along X Plane: \n");
-    scanf("%lf", &Xlength);
-    printf("Enter The Height (in meters) Along Y Plane: \n");
-    scanf("%lf", &Yheight);
+    do{
+        printf("Length in meters Along X Plane (positive integer only): \n");
+        scanf("%lf", &Xlength);
+        printf("Height in meters Along Y Plane (positive integer only): \n");
+        scanf("%lf", &Yheight);
+    } while(Xlength <= 0 || Yheight <= 0);
 
     result = Xlength * Yheight;
-    printf("Answer: %.4f meters squared\n", result);\
+    printf("Answer: %.4f meters squared\n", result);
     return 0;
 }
 
 double AreaOfATriangle(){
     double Xlength, Yheight;
-    printf("Enter The Length (in meters) Along X Plane: \n");
-    scanf("%lf", &Xlength);
-    printf("Enter The Height (in meters) Along Y Plane: \n");
-    scanf("%lf", &Yheight);
+    do{
+        printf("Length in meters Along X Plane (positive integer only): \n");
+        scanf("%lf", &Xlength);
+        printf("Height in meters Along Y Plane (positive integer only): \n");
+        scanf("%lf", &Yheight);
+    } while(Xlength <= 0 || Yheight <= 0);
 
     result = (Xlength * Yheight) / 2;
     printf("Answer: %.4f meters squared\n", result);
@@ -57,40 +63,33 @@ double AreaOfATriangle(){
 }
 
 double AreaOfACircle(){
-    double radious;
-    printf("Enter The Radious (in meters): \n");
-    scanf("%lf", &radious);
-    
-    result = 3.1415926535897932384626433832795028841971693993751 * (radious * radious);
+    double radius;
+    do{
+        printf("Radius in meters (positive integer only): \n");
+        scanf("%lf", &radius);
+    } while(radius <= 0);
+
+    result = 3.1415926535897932384626433832795028841971693993751 * (radius * radius);
     printf("Answer: %.4f meters squared\n", result);
     return 0;
 }
 
 double CircumOfACircle(){
-    double radious;
-    printf("Enter The Radious (in meters): \n");
-    scanf("%lf", &radious);
-    
-    result = 2 * 3.1415926535897932384626433832795028841971693993751 * radious;
+    double radius;
+    do{
+        printf("Radius in meters (positive integer only): \n");
+        scanf("%lf", &radius);
+    } while(radius <= 0);
+
+    result = 2 * 3.1415926535897932384626433832795028841971693993751 * radius;
     printf("Answer: %.4f meters\n", result);
     return 0;
 }
 
 double QuadraticForm(){
-    /*
-    double a, b ,c;
-    printf("Enter The Constant \"a\" (in meters): \n");
-    scanf("%lf", &a);
-    printf("Enter The Constant \"b\" (in meters): \n");
-    scanf("%lf", &b);
-    printf("Enter The Constant \"c\" (in meters): \n");
-    scanf("%lf", &c);
-    
-    result = ((-b) + sqrt(pow(b, 2) - (4 * a * c))) / (2 * a);
-    printf("Answer: %f meters squared\n", result);
-    */
-   
    //https://www.programiz.com/c-programming/examples/quadratic-roots
+   //source above link; just got lazy on this function...
+
     double a, b, c, discriminant, root1, root2, realPart, imagPart;
     printf("Enter coefficients a, b and c: ");
     scanf("%lf %lf %lf", &a, &b, &c);
